@@ -6,7 +6,7 @@
 /*   By: anfarenc <anfarenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/12 10:47:44 by anfarenc          #+#    #+#             */
-/*   Updated: 2025/11/13 09:33:07 by anfarenc         ###   ########.fr       */
+/*   Updated: 2025/11/13 11:29:37 by anfarenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,21 +18,26 @@ static int	ft_print_value(char c, va_list argv)
 {
 	if (c == 'c')
 		return (ft_print_char((int)va_arg(argv, int)));
-	if (c == 's')
+	else if (c == 's')
 		return (ft_print_string((char *)va_arg(argv, char *)));
-	if (c == '%')
+	else if (c == '%')
 		return (ft_print_char('%'));
-	if (c == 'p')
+	else if (c == 'p')
 		return (ft_print_addr((long long)va_arg(argv, long long)));
-	if (c == 'x')
+	else if (c == 'x')
 		return (ft_print_dec_to_hex((long long)va_arg(argv, long long), 0));
-	if (c == 'X')
+	else if (c == 'X')
 		return (ft_print_dec_to_hex((long long)va_arg(argv, long long), 1));
-	if (c == 'i' || c == 'd')
+	else if (c == 'i' || c == 'd')
 		return (ft_print_dec((int)va_arg(argv, long int)));
-	if (c == 'u')
+	else if (c == 'u')
 		return (ft_print_dec((long int)va_arg(argv, long int)));
-	return (0);
+	else
+	{
+		ft_putchar_fd('%',1);
+		ft_putchar_fd(c, 1);
+		return (2);
+	}
 }
 
 int	ft_printf(const char *str, ...)
