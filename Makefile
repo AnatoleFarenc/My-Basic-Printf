@@ -1,27 +1,32 @@
 CC = cc
-SRC = ft_printf.c check_value.c main.c
+SRC = ft_printf.c ft_print_char.c ft_printf_hex.c ft_print_string.c ft_print_dec.c  main.c
 FLAGS = -Wall -Wextra -Werror
 OBJ = ${SRC:.c=.o}
-NAME = prog
+NAME = libftprintf.a
 RM = rm -rf
-LINKER_FLAGS = -Libft
-INCLUDES = libft/libft.a
+LIB_DIR = ./libft
+INCLUDES = ${LIB_DIR}/libft.a
 
 .PHONY: all clean fclean re bonus
 
-all: ${NAME}
+all: ${INCLUDES} ${NAME} 
+
+${INCLUDES}:
+	make -C libft
 
 ${NAME}: ${OBJ}
-	${CC} ${LINKER_FLAGS} ${OBJ} -o ${NAME}
+	cp ${INCLUDES} ${NAME}
+	ar rcs ${NAME} ${OBJ}
 
 %.o: %.c ${INCLUDES}
 	${CC} ${FLAGS} -c $< -o $@
 
-
 clean:
 	${RM} ${OBJ} ${BONUS_OBJ}
+	make clean -C libft 
 
 fclean: clean
 	${RM} ${NAME}
+	make fclean -C  ${LIB_DIR} 
 
 re: fclean all

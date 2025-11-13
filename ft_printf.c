@@ -6,13 +6,12 @@
 /*   By: anfarenc <anfarenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/12 10:47:44 by anfarenc          #+#    #+#             */
-/*   Updated: 2025/11/13 11:29:37 by anfarenc         ###   ########.fr       */
+/*   Updated: 2025/11/13 11:43:56 by anfarenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
 #include "ft_printf.h"
-
+#include <unistd.h>
 
 static int	ft_print_value(char c, va_list argv)
 {
@@ -34,7 +33,7 @@ static int	ft_print_value(char c, va_list argv)
 		return (ft_print_dec((long int)va_arg(argv, long int)));
 	else
 	{
-		ft_putchar_fd('%',1);
+		ft_putchar_fd('%', 1);
 		ft_putchar_fd(c, 1);
 		return (2);
 	}
@@ -43,8 +42,8 @@ static int	ft_print_value(char c, va_list argv)
 int	ft_printf(const char *str, ...)
 {
 	va_list	argv;
-	int	i;
-	int	len;
+	int		i;
+	int		len;
 
 	va_start(argv, str);
 	i = 0;
@@ -53,10 +52,10 @@ int	ft_printf(const char *str, ...)
 	{
 		if (str[i] == '%')
 		{
-			len += ft_print_value(str[i+1], argv);
-			i+=2;
+			len += ft_print_value(str[i + 1], argv);
+			i += 2;
 		}
-		if (str[i])
+		else
 		{
 			ft_putchar_fd((char)str[i], 1);
 			i++;
