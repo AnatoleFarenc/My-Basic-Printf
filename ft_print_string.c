@@ -6,13 +6,13 @@
 /*   By: anfarenc <anfarenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/12 16:07:59 by anfarenc          #+#    #+#             */
-/*   Updated: 2025/11/13 11:10:27 by anfarenc         ###   ########.fr       */
+/*   Updated: 2025/11/13 14:41:24 by anfarenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int 	ft_print_string(char *str)
+int	ft_print_string(char *str)
 {
 	if (!str)
 	{

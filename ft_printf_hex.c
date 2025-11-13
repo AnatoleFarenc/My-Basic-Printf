@@ -6,13 +6,13 @@
 /*   By: anfarenc <anfarenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/12 16:16:45 by anfarenc          #+#    #+#             */
-/*   Updated: 2025/11/13 11:13:30 by anfarenc         ###   ########.fr       */
+/*   Updated: 2025/11/13 14:41:43 by anfarenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int ft_print_dec_to_hex(unsigned long long int nb, int is_up)
+int	ft_print_dec_to_hex(unsigned long long int nb, int is_up)
 {
 	char	dict[16];
 	int		i;
@@ -43,7 +43,7 @@ int	ft_print_addr(unsigned long long int nb)
 {
 	if (!nb)
 	{
-		ft_putstr_fd("(nil)",1);
+		ft_putstr_fd("(nil)", 1);
 		return (5);
 	}
 	ft_putstr_fd("0x", 1);

@@ -6,7 +6,7 @@
 /*   By: anfarenc <anfarenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/12 17:04:29 by anfarenc          #+#    #+#             */
-/*   Updated: 2025/11/13 07:41:30 by anfarenc         ###   ########.fr       */
+/*   Updated: 2025/11/13 14:42:01 by anfarenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	ft_print_dec(long int n)
 {
-	size_t counter;
+	size_t	counter;
 
 	counter = 1;
 	if (n < 0)
